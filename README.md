@@ -2,7 +2,21 @@
 ## Worldwide Covid-19 cases analysis with latest statistics.
 
 
+### 1. What is the difference between Client Side Rendering and Server Side Rendering?
+~ CSR: Rendering is mostly handled by the client (browser) using JavaScript after the initial page load.
+<br>
+~ SSR: Rendering is done on the server, and the client receives a fully-rendered HTML page.
+### 2. Explain and justify the technology stack, libraries, router framework, ui component framework you choose.
+~ I have used additional libraries like Axios, SWR for data fetching and caching. It is also to make it easier to scale. And for front end this web works with Tailwind CSS and Recharts for animated UI.
+### a. Non-exhaustive, pick any notable item and explain
+~ For the routing this web works with the latest next app router. It allows async data fetching in the components, it is server rendered and it is different from writing traditional react codes without 'use client' classification.
+### 3. Provides points of improvement, or feedback for this "Task (Assessment) Requirement".
+~ Can improve on the quizez to be more challenging. Others is alright.
 
+
+<br>
+<br>
+<br>
 
 
 

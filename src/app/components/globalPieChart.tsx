@@ -2,7 +2,7 @@
 
 import {useEffect, useState} from "react";
 import { PieChart, Pie, Legend, Tooltip } from "recharts";
-import { getAllWorldCases } from "../tools";
+import { countryDataFetcher } from "../tools";
 
 const data01 = [
   { name: "Group A", value: 400 },
@@ -26,16 +26,15 @@ type resp = {
 }
 
 
-export default function PieRecharts(searchInput:any) {
+export default function GlobalPieRecharts(searchInput:any) {
 
-    let msiaToday = `https://disease.sh/v3/covid-19/countries/${searchInput.searchInput}?strict=true`
+    let globalCaselUrl = 'https://disease.sh/v3/covid-19/all'
 
-    const [data, setData] = useState(data01)
     const [res, setRes] = useState({}<resp>)
-    const [input, setInput] = useState("MY")
+    const [dataArray, setDataArray] = useState(data01)
 
     useEffect(()=>{
-        getAllWorldCases(msiaToday).then((res:resp)=>{
+        countryDataFetcher(globalCaselUrl).then((res:resp)=>{
             if(res){
                 const dataarr:any = [
                     { name: "Population", value: res.population, fill: 'skyblue' },
@@ -43,35 +42,39 @@ export default function PieRecharts(searchInput:any) {
                     { name: "Recovered", value: res.recovered , fill: 'green'},
                     { name: "Active", value: res.active , fill: 'red'}
                   ];
-                  setData(dataarr)
+                  setDataArray(dataarr)
                   setRes(res)
                   console.log(res)
             }
         })
-    },[msiaToday, searchInput])
+    },[])
+
 
   return (
-    <div className="">
-            <br/>
-            <br/>
-            <h1>Country : {res.country}</h1>
-        <PieChart width={1000} height={400}>
-            <Pie
-                dataKey="value"
-                isAnimationActive={false}
-                data={data}
-                cx={200}
-                cy={200}
-                outerRadius={80}
-                fill="#8884d8"
-                label
-            />
-            <Tooltip />
-        </PieChart>
-        <h1>new cases today : {res.todayCases} </h1>
-        <h1>new deaths today : {res.todayDeaths} </h1>
+    <div>
         <br/>
         <br/>
+        <h1>World live statistics {res.country}</h1>
+    <PieChart width={690} height={400}>
+        <Pie
+            dataKey="value"
+            isAnimationActive={false}
+            data={dataArray}
+            cx={200}
+            cy={200}
+            outerRadius={80}
+            fill="#8884d8"
+            label
+        />
+        <Tooltip />
+    </PieChart>
+    <h1>New cases today : {res.todayCases} </h1>
+    <h1>New deaths today : {res.todayDeaths} </h1>
+    <h1>Population : {res.population/1000000} Million</h1>
+    <h1>Recovered : {res.recovered/1000000} Million</h1>
+    <h1>Active cases : {res.active/1000000} Million</h1>
+    <br/>
+    <br/>
     </div>
    
   );

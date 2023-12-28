@@ -42,7 +42,7 @@ export default function SimpleCharts(stats:any) {
 
     for (let i = 0; i < 15; i++ ){
         const dataObj = {
-            date: Number(Object.keys(stats.stats.cases[0])),
+            date: Number(stats.stats.cases[0]),
             cases: stats.stats.cases[i]/100,
             death: stats.stats.dead[i],
             recovered: stats.stats.recover[i]

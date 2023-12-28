@@ -15,6 +15,7 @@ import {
 
 
 export default function ComposeRecharts(stats:any) {
+  console.log("compose",stats)
     let dataArr = []
 
     for (let i = 0; i < 30; i++ ){
