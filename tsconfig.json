@@ -22,6 +22,6 @@
       "mechanics/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/globalPieChart.jsx", "src/app/components/pieCharts.jsx"],
   "exclude": ["node_modules"]
 }

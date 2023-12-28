@@ -13,31 +13,18 @@ const data01 = [
   { name: "Group F", value: 189 }
 ];
 
-
-
-type resp = {
-    country: string
-    todayCases: string
-    todayDeaths:string
-    population:string
-    cases:string
-    recovered:string
-    active:string
-}
-
-
-export default function PieRecharts(searchInput:any) {
+export default function PieRecharts(searchInput) {
 
     let msiaToday = `https://disease.sh/v3/covid-19/countries/${searchInput.searchInput}?strict=true`
 
     const [data, setData] = useState(data01)
-    const [res, setRes] = useState({}<resp>)
+    const [res, setRes] = useState({})
     const [input, setInput] = useState("MY")
 
     useEffect(()=>{
-        getAllWorldCases(msiaToday).then((res:resp)=>{
+        getAllWorldCases(msiaToday).then((res)=>{
             if(res){
-                const dataarr:any = [
+                const dataarr = [
                     { name: "Population", value: res.population, fill: 'skyblue' },
                     { name: "Cases", value: res.cases, fill: 'orange' },
                     { name: "Recovered", value: res.recovered , fill: 'green'},
