@@ -3,11 +3,14 @@
 
 TODO: find better and accurate api
 
-### CSR: Rendering is mostly handled by the client (browser) using JavaScript after the initial page load.
+### 
+CSR: Rendering is mostly handled by the client (browser) using JavaScript after the initial page load.
 <br>
-### SSR: Rendering is done on the server, and the client receives a fully-rendered HTML page.
+### 
+SSR: Rendering is done on the server, and the client receives a fully-rendered HTML page.
 <br>
-### I have used additional libraries like Axios, SWR for data fetching and caching. It is also to make it easier to scale. And for front end this web works with Tailwind CSS and Recharts for animated UI.
+### 
+I have used additional libraries like Axios, SWR for data fetching and caching. It is also to make it easier to scale. And for front end this web works with Tailwind CSS and Recharts for animated UI.
 ### For the routing this web works with the latest next app router. It allows async data fetching in the components, it is server rendered and it is different from writing traditional react codes without 'use client' classification.
 
 <br>
